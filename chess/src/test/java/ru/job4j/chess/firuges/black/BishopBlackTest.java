@@ -12,16 +12,13 @@ public class BishopBlackTest {
     @Test
     public void position() {
         BishopBlack black = new BishopBlack(Cell.G8);
-        Cell cell = Cell.findBy(6, 0);
-        black.position();
-        Assert.assertThat(black.position(), is (cell));
+        Assert.assertThat(black.position(), is (Cell.G8));
     }
 
     @Test
     public void copy() {
         BishopBlack black = new BishopBlack(Cell.G8);
         black.copy(Cell.B8);
-        Cell cell = Cell.findBy(1, 0);
-        Assert.assertThat(black.copy(Cell.B8).position(), is (cell));
+        Assert.assertThat(black.copy(Cell.B8).position(), is (Cell.B8));
     }
 }
