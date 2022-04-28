@@ -20,33 +20,31 @@ public class LogicTest {
         logic.move(Cell.C1, Cell.H6);
     }
 
-    @Test
+    @Test (expected = FigureNotFoundException.class)
     public void findFigure()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         BishopBlack black = new BishopBlack(Cell.C8);
         logic.add(black);
-        Cell.findBy(2, 0);
+        Cell.findBy(4, 0);
     }
 
-    @Ignore
-    @Test
+    @Test (expected = ImpossibleMoveException.class)
     public void findFigureWays()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         BishopBlack black = new BishopBlack(Cell.D4);
         logic.add(black);
-        black.way(Cell.F6);
+        black.way(Cell.F7);
     }
 
-    @Ignore
-    @Test
+    @Test (expected = ImpossibleMoveException.class)
     public void figureCopy()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         BishopBlack black = new BishopBlack(Cell.D4);
         logic.add(black);
-        black.way(Cell.F6);
+        black.way(Cell.F8);
         black.copy(Cell.F6);
     }
 }
